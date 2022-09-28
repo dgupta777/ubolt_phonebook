@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 // Services
 
@@ -15,9 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './feature/header/header.component';
 import { HomeComponent } from './feature/home/home.component';
+import { FooterComponent } from './feature/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ import { HomeComponent } from './feature/home/home.component';
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
