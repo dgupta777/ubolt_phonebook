@@ -7,21 +7,24 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 // Services
 
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './feature/header/header.component';
+import { HomeComponent } from './feature/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

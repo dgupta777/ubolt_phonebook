@@ -1,0 +1,26 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <img class="logo" src="assets/images/logo.png" alt="" />
+  <div class="content">
+    <p>Sign-up or Login to view your Contact List</p>
+    <div class="buttons" fxLayout="row wrap" fxLayoutAlign="center center">
+      <button
+        routerLink="/sign-up"
+        class="btn"
+        mat-raised-button
+        color="accent"
+        (click)="signUp()"
+      >
+        Sign Up
+      </button>
+      <button
+        routerLink="/login"
+        class="btn"
+        mat-raised-button
+        color="accent"
+        (click)="login()"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</div>
