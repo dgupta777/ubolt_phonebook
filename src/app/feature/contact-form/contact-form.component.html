@@ -1,0 +1,104 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="container-fluid" fxLayout="column">
+    <mat-toolbar color="accent"> Add New Contact </mat-toolbar>
+    <form
+      novalidate
+      [formGroup]="contactForm"
+      #cForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <mat-spinner *ngIf="spinner" class="spinner" color="accent"></mat-spinner>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          formControlName="firstName"
+          type="text"
+          required
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            contactForm.get('firstName')?.hasError('required') &&
+            contactForm.get('firstName')?.touched
+          "
+        >
+          First Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          formControlName="lastName"
+          type="text"
+          autocomplete="off"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+          Enter a valid email.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Mobile Number</mat-label>
+        <input
+          matInput
+          formControlName="mobile"
+          type="tel"
+          maxlength="10"
+          autocomplete="none"
+          required
+        />
+        <mat-error
+          *ngIf="
+            contactForm.get('mobile')?.hasError('required') &&
+            contactForm.get('mobile')?.touched
+          "
+        >
+          Mobile Number is required.
+        </mat-error>
+        <mat-error *ngIf="contactForm.get('mobile')?.hasError('pattern')">
+          Enter a valid mobile number.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Designation</mat-label>
+        <input
+          matInput
+          formControlName="designation"
+          type="text"
+          autocomplete="off"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Organization</mat-label>
+        <input matInput formControlName="org" type="text" autocomplete="off" />
+      </mat-form-field>
+
+      <button
+        [disabled]="!contactForm.valid"
+        type="submit"
+        mat-raised-button
+        color="accent"
+      >
+        Submit
+      </button>
+      <p *ngIf="errMsg" class="errMsg">{{ errMsg }}</p>
+    </form>
+  </div>
+</div>

@@ -23,6 +23,7 @@ import { HomeComponent } from './feature/home/home.component';
 import { FooterComponent } from './feature/footer/footer.component';
 import { LoginComponent } from './feature/auth/login/login.component';
 import { SignUpComponent } from './feature/auth/sign-up/sign-up.component';
+import { ContactFormComponent } from './feature/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SignUpComponent } from './feature/auth/sign-up/sign-up.component';
     FooterComponent,
     LoginComponent,
     SignUpComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
