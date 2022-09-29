@@ -1,0 +1,82 @@
+.container {
+  min-height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.container-fluid {
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  // border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+mat-toolbar {
+  border-radius: 10px 10px 0 0;
+}
+
+form {
+  padding: 15px 5px;
+}
+
+.spinner {
+  position: absolute;
+  z-index: 9;
+}
+
+mat-form-field {
+  width: 90%;
+  margin: 10px 0 0 0;
+}
+
+.errMsg {
+  color: #d04e68;
+  text-align: center;
+  margin: 0 10px 10px;
+}
+
+mat-form-field.mat-form-field {
+  width: 90%;
+  margin: 10px 0 0 0;
+  color: white;
+}
+
+mat-label,
+::ng-deep .mat-form-field-required-marker {
+  color: white !important;
+}
+
+mat-error {
+  color: #d04e68 !important;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
+  background-color: #d04e68 !important;
+}
+
+input,
+textarea {
+  color: white !important;
+  caret-color: white !important;
+}
+
+button,
+.mat-raised-button.mat-button-disabled.mat-button-disabled {
+  width: 100px;
+  margin: 15px;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.login {
+  margin-top: 20px;
+  a {
+    color: white;
+  }
+}

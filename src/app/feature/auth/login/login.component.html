@@ -1,0 +1,63 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="container-fluid" fxLayout="column">
+    <mat-toolbar color="accent"> Login </mat-toolbar>
+    <form
+      novalidate
+      [formGroup]="loginForm"
+      #lForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <mat-spinner *ngIf="spinner" class="spinner" color="accent"></mat-spinner>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          required
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            loginForm.get('email')?.hasError('required') &&
+            loginForm.get('email')?.touched
+          "
+        >
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Enter a valid email.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required />
+
+        <mat-error
+          *ngIf="
+            loginForm.get('password')?.hasError('required') &&
+            loginForm.get('password')?.touched
+          "
+        >
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        [disabled]="!loginForm.valid"
+        type="submit"
+        mat-raised-button
+        color="accent"
+      >
+        Submit
+      </button>
+      <p *ngIf="errMsg" class="errMsg">{{ errMsg }}</p>
+    </form>
+  </div>
+  <div class="signUp">
+    <p>New user? Sign up <a routerLink="/sign-up">here</a>.</p>
+  </div>
+</div>
