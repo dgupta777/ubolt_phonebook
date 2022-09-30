@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './feature/app-routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +27,7 @@ import { LoginComponent } from './feature/auth/login/login.component';
 import { SignUpComponent } from './feature/auth/sign-up/sign-up.component';
 import { ContactFormComponent } from './feature/contact-form/contact-form.component';
 import { ContactListComponent } from './feature/contact-list/contact-list.component';
+import { PageNotFoundComponent } from './feature/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ContactListComponent } from './feature/contact-list/contact-list.compon
     SignUpComponent,
     ContactFormComponent,
     ContactListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,18 @@
     fxLayoutAlign="space-between start"
   >
     <div fxFlexOrder.lt-md="2" fxLayout="column" fxLayoutAlign="start start">
+      <button
+        class="add-contact"
+        mat-raised-button
+        color="accent"
+        routerLink="/add-contact"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <mat-icon> person_add </mat-icon>
+        <span> Add Contact</span>
+      </button>
+
       <mat-form-field appearance="standard">
         <mat-label>Search</mat-label>
         <input
