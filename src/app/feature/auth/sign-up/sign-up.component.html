@@ -11,6 +11,24 @@
     >
       <mat-spinner *ngIf="spinner" class="spinner" color="accent"></mat-spinner>
       <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          type="text"
+          required
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            signUpForm.get('email')?.hasError('required') &&
+            signUpForm.get('email')?.touched
+          "
+        >
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
         <mat-label>Email</mat-label>
         <input
           matInput

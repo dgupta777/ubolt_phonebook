@@ -33,13 +33,18 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.authService.login(authData);
-    setTimeout(() => {
-      this.spinner = false;
-      this.loginForm.reset({
-        email: '',
-        password: '',
+    this.authService
+      .login(authData)
+      .then(() => {
+        this.spinner = false;
+        this.loginForm.reset({
+          email: '',
+          password: '',
+        });
+      })
+      .catch((err) => {
+        this.spinner = false;
+        this.errMsg = err.message;
       });
-    }, 2000);
   }
 }
