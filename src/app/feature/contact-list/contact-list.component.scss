@@ -33,7 +33,6 @@ mat-expansion-panel {
 mat-panel-title,
 mat-panel-description {
   color: white;
-  font-family: "Merriweather", serif;
 }
 
 mat-expansion-panel-header {
@@ -45,6 +44,7 @@ mat-expansion-panel-header {
 mat-panel-title {
   width: 50%;
   font-weight: 600;
+  font-family: "Merriweather", serif;
 }
 
 mat-panel-description {

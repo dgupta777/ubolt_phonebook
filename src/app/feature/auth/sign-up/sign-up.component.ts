@@ -48,8 +48,6 @@ export class SignUpComponent implements OnInit {
     let userData: User = {
       name: this.signUpForm.value.name,
       email: this.signUpForm.value.email,
-      contacts: [],
-      reminders: [],
     };
     this.authService
       .registerUser(authData)

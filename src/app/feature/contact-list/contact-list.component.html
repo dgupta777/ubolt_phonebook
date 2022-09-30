@@ -73,8 +73,10 @@
                       {{ item.firstName }}
                     </p>
                   </mat-panel-title>
-                  <mat-panel-description fxFlex="25" fxLayoutAlign="end center">
-                    <mat-icon> phonelink_ring </mat-icon> {{ item.mobile }}
+                  <mat-panel-description
+                    fxFlex="25"
+                    fxLayoutAlign="center center"
+                    >{{ item.mobile }}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -118,10 +120,18 @@
                 >
                   <button mat-raised-button color="accent">Set Reminder</button>
                   <div class="action">
-                    <button mat-button title="Edit Contact">
+                    <button
+                      mat-button
+                      title="Edit Contact"
+                      [routerLink]="['/edit-contact', item.id]"
+                    >
                       <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-button title="Delete Contact">
+                    <button
+                      mat-button
+                      title="Delete Contact"
+                      (click)="deleteContact(item.id)"
+                    >
                       <mat-icon>delete</mat-icon>
                     </button>
                   </div>

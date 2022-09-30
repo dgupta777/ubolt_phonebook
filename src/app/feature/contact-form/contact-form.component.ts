@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../model/contact.model';
+import { AuthService } from '../services/auth.service';
+import { UserContactService } from '../services/user-contact.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,12 +15,27 @@ export class ContactFormComponent implements OnInit {
   contactForm!: FormGroup;
   errMsg!: string;
   spinner = false;
+  contactId: any;
+  isEditMode!: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private userContactService: UserContactService,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.contactId = this.route.snapshot.params['id'];
+    if (this.contactId) {
+      this.isEditMode = true;
+      this.fillFormData();
+    } else {
+      this.isEditMode = false;
+    }
     this.createForm();
   }
-
-  ngOnInit(): void {}
 
   createForm() {
     this.contactForm = this.fb.group({
@@ -30,22 +49,58 @@ export class ContactFormComponent implements OnInit {
     });
   }
 
+  fillFormData() {
+    this.userContactService
+      .getContactById(this.authService.getUser().id, this.contactId)
+      .pipe(first())
+      .subscribe((data) => {
+        let formData = {
+          id: data.payload.id,
+          ...(data.payload.data() as {}),
+        } as Contact;
+        this.contactForm.patchValue(formData);
+      });
+  }
+
   onSubmit() {
     this.errMsg = '';
     this.spinner = true;
     let data: Contact = this.contactForm.value;
-    console.log(data);
-    setTimeout(() => {
-      this.spinner = false;
-      this.contactForm.reset({
-        firstName: '',
-        lastName: '',
-        email: '',
-        mobile: null,
-        status: 'Active',
-        designation: '',
-        org: '',
-      });
-    }, 1000);
+
+    if (!this.isEditMode) {
+      this.userContactService
+        .addContact(this.authService.getUser().id, data)
+        .then(() => {
+          this.success();
+        })
+        .catch((error) => {
+          this.spinner = false;
+          this.errMsg = error.message;
+        });
+    } else {
+      this.userContactService
+        .updateContact(this.authService.getUser().id, this.contactId, data)
+        .then(() => {
+          this.success();
+        })
+        .catch((error) => {
+          this.spinner = false;
+          this.errMsg = error.message;
+        });
+    }
+  }
+
+  success() {
+    this.spinner = false;
+    this.contactForm.reset({
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobile: null,
+      status: 'Active',
+      designation: '',
+      org: '',
+    });
+    this.router.navigate(['/']);
   }
 }

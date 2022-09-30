@@ -20,6 +20,11 @@ const routes: Routes = [
     component: ContactFormComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'edit-contact/:id',
+    component: ContactFormComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/sign-up', component: SignUpComponent },
   { path: 'home', component: HomeComponent },
