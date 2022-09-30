@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../model/contact.model';
 import { AuthService } from '../services/auth.service';
 import { UserContactService } from '../services/user-contact.service';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -50,16 +49,17 @@ export class ContactFormComponent implements OnInit {
   }
 
   fillFormData() {
-    this.userContactService
-      .getContactById(this.authService.getUser().id, this.contactId)
-      .pipe(first())
-      .subscribe((data) => {
-        let formData = {
-          id: data.payload.id,
-          ...(data.payload.data() as {}),
-        } as Contact;
-        this.contactForm.patchValue(formData);
-      });
+    this.authService.firebaseSubscriptions.push(
+      this.userContactService
+        .getContactById(this.authService.getUser().id, this.contactId)
+        .subscribe((data) => {
+          let formData = {
+            id: data.payload.id,
+            ...(data.payload.data() as {}),
+          } as Contact;
+          this.contactForm.patchValue(formData);
+        })
+    );
   }
 
   onSubmit() {
