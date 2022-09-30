@@ -1,5 +1,7 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center">
-  <p class="email">Hi, helloworld@gmail.com</p>
+  <p class="email">
+    Hi, <span *ngIf="user">{{ user.email }}</span>
+  </p>
 
   <div
     class="container-fluid"

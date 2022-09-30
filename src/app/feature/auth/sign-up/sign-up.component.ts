@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthData } from '../../model/auth-data';
+import { AuthService } from '../../services/auth.service';
 import { PasswordMatch } from '../password-match.validator';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
   errMsg!: string;
   spinner = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.createForm();
   }
 
@@ -37,7 +38,7 @@ export class SignUpComponent implements OnInit {
       email: this.signUpForm.value.email,
       password: this.signUpForm.value.password,
     };
-    console.log(authData);
+    this.authService.registerUser(authData);
     setTimeout(() => {
       this.spinner = false;
       this.signUpForm.reset({

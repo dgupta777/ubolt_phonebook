@@ -1,6 +1,9 @@
-<mat-toolbar class="header">
+<mat-toolbar class="header" fxLayout="row" fxLayoutAlign="space-between center">
   <div class="logo" routerLink="/" fxLayout="row" fxLayoutAlign="start center">
     <img class="logo-img" src="assets/images/logo.png" alt="" />
     <p class="title">Phone Book</p>
   </div>
+  <button *ngIf="isAuth" mat-raised-button color="accent" (click)="logout()">
+    Logout
+  </button>
 </mat-toolbar>

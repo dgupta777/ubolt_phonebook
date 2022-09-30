@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/authguard.guard';
 
 import { ContactListComponent } from '../contact-list/contact-list.component';
 import { LoginComponent } from '../auth/login/login.component';
@@ -12,8 +13,13 @@ const routes: Routes = [
   {
     path: '',
     component: ContactListComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'add-contact', component: ContactFormComponent },
+  {
+    path: 'add-contact',
+    component: ContactFormComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/sign-up', component: SignUpComponent },
   { path: 'home', component: HomeComponent },
@@ -24,5 +30,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {}

@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 
 // Services
+import { AuthService } from './feature/services/auth.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -57,7 +58,7 @@ import { PageNotFoundComponent } from './feature/page-not-found/page-not-found.c
     MatExpansionModule,
     MatTableModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

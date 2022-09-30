@@ -9,12 +9,4 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  signUp() {
-    console.log('sign up');
-  }
-
-  login() {
-    console.log('login');
-  }
 }
