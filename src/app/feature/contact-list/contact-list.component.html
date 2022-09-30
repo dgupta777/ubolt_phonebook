@@ -1,0 +1,129 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+  <p class="email">Hi, helloworld@gmail.com</p>
+
+  <div
+    class="container-fluid"
+    fxFlex
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="space-between start"
+  >
+    <div fxFlexOrder.lt-md="2" fxLayout="column" fxLayoutAlign="start start">
+      <mat-form-field appearance="standard">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter()"
+          [(ngModel)]="search"
+          autocomplete="off"
+        />
+        <button
+          *ngIf="search"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="search = ''; applyFilter()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource">
+        <ng-container
+          [matColumnDef]="column"
+          *ngFor="let column of displayedColumns"
+        >
+          <th mat-header-cell *matHeaderCellDef>
+            <b>{{ column }}</b>
+          </th>
+          <td mat-cell *matCellDef="let item; let i = index">
+            <mat-accordion>
+              <mat-expansion-panel
+                [expanded]="step === i"
+                (opened)="setStep(i)"
+                hideToggle
+              >
+                <mat-expansion-panel-header
+                  fxLayout="row"
+                  fxLayoutAlign="center center"
+                >
+                  <mat-panel-title fxFlex="75">
+                    <mat-icon
+                      fxFlex="20"
+                      class="icon"
+                      fxLayoutAlign="center center"
+                    >
+                      account_circle
+                    </mat-icon>
+                    <p fxFlex class="name">
+                      {{ item.firstName }}
+                    </p>
+                  </mat-panel-title>
+                  <mat-panel-description fxFlex="25" fxLayoutAlign="end center">
+                    <mat-icon> phonelink_ring </mat-icon> {{ item.mobile }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <p
+                  *ngIf="item.email"
+                  class="details"
+                  fxLayout="row"
+                  fxLayoutAlign="start center"
+                >
+                  <mat-icon fxLayoutAlign="center center" fxFLex="15">
+                    alternate_email
+                  </mat-icon>
+                  <span fxFlex="85">{{ item.email }}</span>
+                </p>
+                <p
+                  *ngIf="item.org"
+                  class="details"
+                  fxLayout="row"
+                  fxLayoutAlign="start center"
+                >
+                  <mat-icon fxLayoutAlign="center center" fxFLex="15">
+                    account_balance
+                  </mat-icon>
+                  <span fxFlex="85">{{ item.org }}</span>
+                </p>
+                <p
+                  *ngIf="item.designation"
+                  class="details"
+                  fxLayout="row"
+                  fxLayoutAlign="start center"
+                >
+                  <mat-icon fxLayoutAlign="center center" fxFLex="15">
+                    work_outline
+                  </mat-icon>
+                  <span fxFlex="85">{{ item.designation }}</span>
+                </p>
+                <div
+                  class="buttons"
+                  fxLayout="row"
+                  fxLayoutAlign="space-between center"
+                >
+                  <button mat-raised-button color="accent">Set Reminder</button>
+                  <div class="action">
+                    <button mat-button title="Edit Contact">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-button title="Delete Contact">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </td>
+        </ng-container>
+        <mat-toolbar>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell">No contact found.</td>
+          </tr>
+        </mat-toolbar>
+      </table>
+    </div>
+  </div>
+</div>

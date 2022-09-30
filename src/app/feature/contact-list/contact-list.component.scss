@@ -1,0 +1,102 @@
+.container {
+  height: 100%;
+  color: white;
+  padding: 30px 0;
+}
+
+.email {
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 5vw;
+}
+
+mat-expansion-panel {
+  margin: 10px 0;
+  width: 400px;
+  max-width: 90vw;
+  background-color: #1d1d1d;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+mat-panel-title,
+mat-panel-description {
+  color: white;
+  font-family: "Merriweather", serif;
+}
+
+mat-expansion-panel-header {
+  height: 70px;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+mat-panel-title {
+  width: 50%;
+  font-weight: 600;
+}
+
+mat-panel-description {
+  font-weight: 300;
+}
+
+.icon {
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+:host ::ng-deep thead {
+  display: none;
+}
+
+table,
+td {
+  background-color: transparent;
+  padding: 0 !important;
+  color: white;
+}
+
+input {
+  color: white !important;
+  caret-color: white !important;
+}
+
+mat-form-field.mat-form-field {
+  margin: 10px 0 0 0;
+  color: white;
+}
+
+mat-label,
+::ng-deep .mat-form-field-required-marker {
+  color: white !important;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
+  background-color: #d04e68 !important;
+}
+
+.details {
+  margin: 5px 0;
+  font-weight: 500;
+  font-family: "Merriweather", serif;
+  color: white;
+
+  mat-icon {
+    margin-right: 10px;
+  }
+}
+
+.buttons {
+  margin-top: 10px;
+  color: white;
+}

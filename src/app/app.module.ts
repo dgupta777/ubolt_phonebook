@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
 
 // Services
 
@@ -24,6 +26,7 @@ import { FooterComponent } from './feature/footer/footer.component';
 import { LoginComponent } from './feature/auth/login/login.component';
 import { SignUpComponent } from './feature/auth/sign-up/sign-up.component';
 import { ContactFormComponent } from './feature/contact-form/contact-form.component';
+import { ContactListComponent } from './feature/contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { ContactFormComponent } from './feature/contact-form/contact-form.compon
     LoginComponent,
     SignUpComponent,
     ContactFormComponent,
+    ContactListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,8 @@ import { ContactFormComponent } from './feature/contact-form/contact-form.compon
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
