@@ -67,7 +67,7 @@
                     account_circle
                   </mat-icon>
                   <p fxFlex class="name">
-                    {{ item.firstName }}
+                    {{ item.firstName | filter: item.lastName }}
                   </p>
                 </mat-panel-title>
                 <mat-panel-description fxFlex="25" fxLayoutAlign="center center"
