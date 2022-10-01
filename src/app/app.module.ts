@@ -10,10 +10,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
-import { AuthModule } from './feature/auth/auth.module';
 import { SharedModule } from './feature/shared/shared.module';
-import { ContactListModule } from './feature/contact-list/contact-list.module';
-import { ContactFormModule } from './feature/contact-form/contact-form.module';
 
 // Services
 import { AuthService } from './feature/services/auth.service';
@@ -36,10 +33,7 @@ import { PageNotFoundComponent } from './feature/page-not-found/page-not-found.c
   ],
   imports: [
     BrowserModule,
-    AuthModule,
     SharedModule,
-    ContactListModule,
-    ContactFormModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

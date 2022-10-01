@@ -5,7 +5,7 @@
       class="add-contact"
       mat-raised-button
       color="accent"
-      routerLink="/add-contact"
+      routerLink="/contact-form/add-contact"
       fxLayout="row"
       fxLayoutAlign="center center"
     >
@@ -116,7 +116,7 @@
                 <button
                   mat-button
                   title="Edit Contact"
-                  [routerLink]="['/edit-contact', item.id]"
+                  [routerLink]="['/contact-form/edit-contact', item.id]"
                 >
                   <mat-icon>edit</mat-icon>
                 </button>
